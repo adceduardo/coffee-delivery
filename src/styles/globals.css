@@ -1,42 +1,67 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* Cores */
+  --yellow-dark: #C47F17;
+  --yellow: #DBAC2C;
+  --yellow-light: #F1E9C9;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+  --purple-dark: #4B2995;
+  --purple: #8047F8;
+  --purple-light: #EBE5F9;
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
+  --base-title: #272221;
+  --base-subtitle: #403937;
+  --base-text: #574F4D;
+  --base-label: #8D8686;
+  --base-hover: #D7D5D5;
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --base-button: #E6E5E5;
+  --base-input: #EDEDED;
+  --base-card: #F3F2F2;
+
+  --background: #FAFAFA;
+  --white: #FFFFFF;
+
+  /* Fonts */
+  --title-xl: 3rem; /* 48px */
+  --title-l: 2rem; /* 32px */
+  --title-m: 1.5rem; /* 24px */
+  --title-s: 1.25rem; /* 20px */
+  --title-xs: 1.125rem; /* 18px */  
+
+  --text-l: 1.25rem; /* 20px */
+  --text-m: 1rem; /* 16px */
+  --text-s: 0.875rem; /* 14px */
+  --text-input: 1rem; /* 16px */
+
+  --line-height-130: 130%;
+  --line-height-160: 160%;
+
+  --weight-extra-bold: 800;
+  --weight-bold: 700;
+  --weight-regular: 400;
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
+
+
+.react-bootstrap .row, 
+.react-bootstrap .col {
+  padding: 0 !important;
+  margin: 0 !important;
 }
+
+body{
+  background: var(--background);
+}
+
+#__next {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
