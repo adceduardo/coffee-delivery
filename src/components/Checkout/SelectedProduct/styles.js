@@ -34,6 +34,11 @@ export const SectionSelectedContainer = styled.div`
     background: var(--yellow-dark);
   }
 
+  .confirm:disabled{
+    background: var(--yellow-light);
+    cursor: default;
+  }
+
 `;
 
 export const SectionSelected = styled.div`

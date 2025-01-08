@@ -8,7 +8,7 @@ import { SectionSelected } from './styles';
 import { SectionSelectedContainer } from './styles';
 import { CardProductCart } from './CardProductCart';
 
-export function SelectedProduct() {
+export function SelectedProduct({ onCheckout }) {
   const { cartItems, cartItemsTotal, cartQuantity } = useContext(CartContext);
   const shippingPrice = 3.7;
   const cartTotal = shippingPrice + cartItemsTotal;
@@ -39,7 +39,11 @@ export function SelectedProduct() {
                 <p>Total</p>
                 <span>R$ {cartTotal.toFixed(2).replace('.', ',')}</span>
               </strong>
-              <button disabled={cartQuantity <= 0} className="confirm">
+              <button
+                // disabled={cartQuantity <= 0}
+                className="confirm"
+                onClick={onCheckout}
+              >
                 CONFIRMAR PEDIDO
               </button>
             </Col>
