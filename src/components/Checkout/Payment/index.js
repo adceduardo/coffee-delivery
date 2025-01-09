@@ -10,11 +10,12 @@ import { CiCreditCard1 } from 'react-icons/ci';
 import { PiBank } from 'react-icons/pi';
 import { PiMoneyThin } from 'react-icons/pi';
 
-export function Payment() {
-  const [paymentSelected, setPaymentMethod] = useState('');
-
+export function Payment({setPaymentMethod}) {
+  const [paymentSelected, setPaymentSelected] = useState('')
+ 
   const handlePaymentSelection = (method) => {
     setPaymentMethod(method);
+    setPaymentSelected(method)
   };
 
   return (

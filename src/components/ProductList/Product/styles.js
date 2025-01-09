@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {baloo2} from '../../../../app/fonts'
+import { baloo2 } from '../../../../app/fonts';
 
 export const ProductContainer = styled.div`
   width: 100%;
@@ -74,17 +74,18 @@ export const BuyContainer = styled.div`
     }
   }
 
-  .cart{
+  .cart {
     all: unset;
     background: var(--purple-dark);
     padding: 8px;
     border-radius: 6px;
     color: var(--base-card);
-    margin-left:8px;
+    margin-left: 8px;
   }
 
-  .cart:hover{
+  .cart:hover {
     cursor: pointer;
+    background: var(--purple);
+    transition: 0.3s;
   }
-
 `;

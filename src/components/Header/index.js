@@ -14,9 +14,8 @@ import Link from 'next/link';
 import { CartContext } from '@/contexts/CartContext';
 
 export function Header() {
-  const { cartQuantity, cartItems } = useContext(CartContext);
+  const { cartQuantity } = useContext(CartContext);
 
-  console.log(cartItems);
   return (
     <HeaderBackground>
       <HeaderContainer className="container">

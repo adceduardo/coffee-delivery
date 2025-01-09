@@ -1,4 +1,5 @@
 import { Row, Col } from 'react-bootstrap';
+import { useRouter } from 'next/router';
 
 // Ícones
 import { LuTimer } from 'react-icons/lu';
@@ -8,7 +9,17 @@ import { FiDollarSign } from 'react-icons/fi';
 // Components
 import { ConfirmationContainer, Details } from './styles';
 
+
 export function Confirmation() {
+  const paymentMethods = {
+    credit: 'Cartão de crédito',
+    debit: 'Cartão de débito',
+    money: 'Dinheiro'
+  }
+  
+  const router = useRouter()
+  const {rua, numero, bairro, cidade, pagamento, uf} = router.query;
+
   return (
     <ConfirmationContainer className="container p-0">
       <Row>
@@ -26,8 +37,8 @@ export function Confirmation() {
                   <FaLocationDot size={20} />
                 </div>
                 <div className="d-block">
-                  <p>Entrega em <strong>rua thururu, 192</strong></p>
-                  <p>Farrapos- porto alegre rs</p>
+                  <p>Entrega em <strong>{rua}, {numero}</strong></p>
+                  <p>{bairro} - {cidade} {uf}</p>
                 </div>
               </Col>
             </Row>
@@ -52,7 +63,7 @@ export function Confirmation() {
                 </div>
                 <div className="d-block">
                   <p>Pagamento na entrega</p>
-                  <strong>Cartão de crédito</strong>
+                  <strong>{paymentMethods[pagamento]}</strong>
                 </div>
               </Col>
             </Row>

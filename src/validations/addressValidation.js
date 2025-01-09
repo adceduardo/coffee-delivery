@@ -23,4 +23,7 @@ export const addressSchema = yup.object().shape({
         .string()
         .length(2, 'UF deve ter 2 caracteres')
         .required('UF é obrigatório'),
+
+    complemento: yup
+        .string(),
 });

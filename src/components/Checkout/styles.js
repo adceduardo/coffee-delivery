@@ -63,7 +63,7 @@ export const CheckoutSection = styled.div`
       all: unset;
       padding: 1rem;
       width: 100%;
-      transition: 0.4s;
+      transition: 0.3s;
     }
 
     button:hover {

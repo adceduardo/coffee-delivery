@@ -40,7 +40,6 @@ export function SelectedProduct({ onCheckout }) {
                 <span>R$ {cartTotal.toFixed(2).replace('.', ',')}</span>
               </strong>
               <button
-                // disabled={cartQuantity <= 0}
                 className="confirm"
                 onClick={onCheckout}
               >

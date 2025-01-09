@@ -37,7 +37,6 @@ export function Product({ products }) {
 
       addToCart(productInfo);
     }
-    console.log(cartItems);
   };
   return (
     <>
