@@ -1,32 +1,32 @@
 :root {
   /* Cores */
-  --yellow-dark: #C47F17;
-  --yellow: #DBAC2C;
-  --yellow-light: #F1E9C9;
+  --yellow-dark: #c47f17;
+  --yellow: #dbac2c;
+  --yellow-light: #f1e9c9;
 
-  --purple-dark: #4B2995;
-  --purple: #8047F8;
-  --purple-light: #EBE5F9;
+  --purple-dark: #4b2995;
+  --purple: #8047f8;
+  --purple-light: #ebe5f9;
 
   --base-title: #272221;
   --base-subtitle: #403937;
-  --base-text: #574F4D;
-  --base-label: #8D8686;
-  --base-hover: #D7D5D5;
+  --base-text: #574f4d;
+  --base-label: #8d8686;
+  --base-hover: #d7d5d5;
 
-  --base-button: #E6E5E5;
-  --base-input: #EDEDED;
-  --base-card: #F3F2F2;
+  --base-button: #e6e5e5;
+  --base-input: #ededed;
+  --base-card: #f3f2f2;
 
-  --background: #FAFAFA;
-  --white: #FFFFFF;
+  --background: #fafafa;
+  --white: #ffffff;
 
   /* Fonts */
   --title-xl: 3rem; /* 48px */
   --title-l: 2rem; /* 32px */
   --title-m: 1.5rem; /* 24px */
   --title-s: 1.25rem; /* 20px */
-  --title-xs: 1.125rem; /* 18px */  
+  --title-xs: 1.125rem; /* 18px */
 
   --text-l: 1.25rem; /* 20px */
   --text-m: 1rem; /* 16px */
@@ -42,19 +42,18 @@
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-
-.react-bootstrap .row, 
+.react-bootstrap .row,
 .react-bootstrap .col {
   padding: 0 !important;
   margin: 0 !important;
 }
 
-body{
+body {
   background: var(--background);
 }
 
@@ -63,5 +62,3 @@ body{
   margin: 0;
   padding: 0;
 }
-
-

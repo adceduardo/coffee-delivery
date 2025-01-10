@@ -42,6 +42,7 @@ export function SelectedProduct({ onCheckout }) {
               <button
                 className="confirm"
                 onClick={onCheckout}
+                disabled={(cartQuantity <=0)}
               >
                 CONFIRMAR PEDIDO
               </button>

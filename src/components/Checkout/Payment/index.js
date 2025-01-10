@@ -1,5 +1,5 @@
 import { Row, Col } from 'react-bootstrap';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // Components
 import { CheckoutSection } from '../styles';
@@ -10,12 +10,12 @@ import { CiCreditCard1 } from 'react-icons/ci';
 import { PiBank } from 'react-icons/pi';
 import { PiMoneyThin } from 'react-icons/pi';
 
-export function Payment({setPaymentMethod}) {
-  const [paymentSelected, setPaymentSelected] = useState('')
- 
+export function Payment({ setPaymentMethod }) {
+  const [paymentSelected, setPaymentSelected] = useState('');
+
   const handlePaymentSelection = (method) => {
     setPaymentMethod(method);
-    setPaymentSelected(method)
+    setPaymentSelected(method);
   };
 
   return (

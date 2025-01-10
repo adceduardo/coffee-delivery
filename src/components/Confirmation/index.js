@@ -1,5 +1,9 @@
 import { Row, Col } from 'react-bootstrap';
 import { useRouter } from 'next/router';
+import { useContext, useEffect } from 'react';
+import { useState } from 'react';
+
+import { CartContext } from '@/contexts/CartContext';
 
 // Ícones
 import { LuTimer } from 'react-icons/lu';
@@ -14,11 +18,29 @@ export function Confirmation() {
   const paymentMethods = {
     credit: 'Cartão de crédito',
     debit: 'Cartão de débito',
-    money: 'Dinheiro'
+    money: 'Dinheiro',
+  };
+
+  const router = useRouter();
+  const [validatedData, setValidatedData] = useState(null);
+  const [paymentMethod, setPaymentMethod] = useState(null);
+
+  const {cleanCart} = useContext(CartContext)
+  useEffect(() => {
+    const { validatedData, pagamento } = router.query;
+
+    if (validatedData && pagamento) {
+      setValidatedData(JSON.parse(router.query.validatedData));
+      setPaymentMethod(pagamento)
+      cleanCart()
+    } else {
+      router.push('/');
+    }
+  }, [router]);
+
+  if (!validatedData || !paymentMethod) {
+    return null;
   }
-  
-  const router = useRouter()
-  const {rua, numero, bairro, cidade, pagamento, uf} = router.query;
 
   return (
     <ConfirmationContainer className="container p-0">
@@ -37,8 +59,15 @@ export function Confirmation() {
                   <FaLocationDot size={20} />
                 </div>
                 <div className="d-block">
-                  <p>Entrega em <strong>{rua}, {numero}</strong></p>
-                  <p>{bairro} - {cidade} {uf}</p>
+                  <p>
+                    Entrega em{' '}
+                    <strong>
+                      {validatedData.rua}, {validatedData.numero}
+                    </strong>
+                  </p>
+                  <p>
+                    {validatedData.bairro} - {validatedData.cidade} {validatedData.uf}
+                  </p>
                 </div>
               </Col>
             </Row>
@@ -59,18 +88,18 @@ export function Confirmation() {
                   className="ico"
                   style={{ background: 'var(--yellow-dark)' }}
                 >
-                  <FiDollarSign size={20}/>
+                  <FiDollarSign size={20} />
                 </div>
                 <div className="d-block">
                   <p>Pagamento na entrega</p>
-                  <strong>{paymentMethods[pagamento]}</strong>
+                  <strong>{paymentMethods[paymentMethod]}</strong>
                 </div>
               </Col>
             </Row>
           </Details>
         </Col>
         <Col className="p-0" lg="6">
-          <img src="images/confirmation.png"></img>
+          <img src="images/confirmation.png" alt='Confirmação de pedido'></img>
         </Col>
       </Row>
     </ConfirmationContainer>

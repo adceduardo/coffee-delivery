@@ -1,6 +1,7 @@
 import { Row, Col } from 'react-bootstrap';
 import { useRouter } from 'next/router';
 import { useRef, useState } from 'react';
+import { toast } from 'react-toastify';
 
 // Components
 import { SelectedProduct } from './SelectedProduct';
@@ -13,7 +14,6 @@ export function Checkout() {
   const formRef = useRef(null);
 
   const [paymentSelected, setPaymentMethod] = useState('');
-
   const [validatedData, setValidatedData] = useState(null);
 
   const handleSubmit = () => {
@@ -21,19 +21,18 @@ export function Checkout() {
       formRef.current.submitForm();
     }
 
-    if (validatedData) {
-      console.log(validatedData)
+    if (validatedData && paymentSelected) {
+      console.log(validatedData);
       router.push({
         pathname: '/confirmation',
         query: {
-          rua: validatedData.rua,
-          numero: validatedData.numero,
-          bairro: validatedData.bairro,
-          cidade: validatedData.cidade,
-          uf: validatedData.uf,
+          validatedData: JSON.stringify(validatedData),
           pagamento: paymentSelected,
         },
       });
+      toast.success('Compra finalizada com sucesso')
+    } else if (!paymentSelected) {
+      toast.error('Por favor, selecione uma forma de pagamento');
     }
   };
 
@@ -43,13 +42,10 @@ export function Checkout() {
         <Row>
           <Col lg="7" className="p-0 checkout-section">
             <AdressCard formRef={formRef} setValidatedData={setValidatedData} />
-            <Payment setPaymentMethod={setPaymentMethod}/>
+            <Payment setPaymentMethod={setPaymentMethod} />
           </Col>
           <Col lg="5" className="p-0">
-            <SelectedProduct
-              onCheckout={handleSubmit}
-              validatedData={validatedData}
-            />
+            <SelectedProduct onCheckout={handleSubmit} />
           </Col>
         </Row>
       </CheckoutContainer>

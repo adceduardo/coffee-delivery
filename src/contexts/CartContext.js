@@ -1,7 +1,7 @@
 'use client';
 import { produce } from 'immer';
 
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useState } from 'react';
 
 export const CartContext = createContext();
 
@@ -27,6 +27,11 @@ export function CartProvider({ children }) {
 
     setCartItems(newCart);
   }
+
+  function cleanCart(){
+    setCartItems([])
+  }
+
 
   function changeCartProductQuantity(cartProductId, functionality) {
     const newCart = produce(cartItems, (draft) => {
@@ -70,6 +75,7 @@ export function CartProvider({ children }) {
         changeCartProductQuantity,
         removeCartItem,
         cartItemsTotal,
+        cleanCart,
       }}
     >
       {children}
