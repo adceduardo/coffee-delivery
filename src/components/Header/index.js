@@ -1,6 +1,7 @@
 import { Row, Col } from 'react-bootstrap';
 import logo from '../../../public/images/logo.png';
 import { useContext } from 'react';
+import { CartContext } from '@/contexts/CartContext';
 
 // Ícones
 import { FaLocationDot } from 'react-icons/fa6';
@@ -10,8 +11,6 @@ import { FaShoppingCart } from 'react-icons/fa';
 import Image from 'next/image';
 import { HeaderBackground, HeaderContainer } from './styles';
 import Link from 'next/link';
-
-import { CartContext } from '@/contexts/CartContext';
 
 export function Header() {
   const { cartQuantity } = useContext(CartContext);

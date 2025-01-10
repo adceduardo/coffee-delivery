@@ -22,7 +22,6 @@ export function Checkout() {
     }
 
     if (validatedData && paymentSelected) {
-      console.log(validatedData);
       router.push({
         pathname: '/confirmation',
         query: {
